@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFont
 import ctypes
 import sys
 import pandas as pd
@@ -16,8 +16,8 @@ class MainWindow(QMainWindow):
 
     def initialise_ui(self):
         self.statusbar = self.statusBar()
-        self.statusbar.showMessage('Ready')
-        self.setWindowTitle("AVA Spelling Bee")
+        self.statusbar.showMessage("Ready")
+        self.setWindowTitle("Aritya Spelling Bee")
         self.setWindowIcon(QIcon(QApplication.style().standardIcon(
           QStyle.SP_FileDialogListView)))
         self.show()
@@ -36,46 +36,57 @@ class Widget(QWidget):
 
     def initialise_ui(self):
         hbox = QHBoxLayout()
+        self.e1 = QLineEdit()
+        self.e1.setFont(QFont("Arial", 20))
         btn1 = QPushButton(QIcon(QApplication.style().standardIcon(
-            QStyle.SP_DialogOpenButton)), 'Input Folder', self)
+            QStyle.SP_DialogApplyButton)), "Check", self)
         btn2 = QPushButton(QIcon(QApplication.style().standardIcon(
-            QStyle.SP_DialogOpenButton)), 'Output Folder', self)
+            QStyle.SP_ArrowForward)), "Next", self)
         btn3 = QPushButton(QIcon(QApplication.style().standardIcon(
-            QStyle.SP_DialogApplyButton)), 'Next', self)
-        btn4 = QPushButton(QIcon(QApplication.style().standardIcon(
-            QStyle.SP_DialogCancelButton)), 'Exit', self)
-        btn1.clicked.connect(self.select_input_folder)
-        btn2.clicked.connect(self.select_output_folder)
-        btn3.clicked.connect(self.next)
-        btn4.clicked.connect(QApplication.instance().quit)
+            QStyle.SP_DialogCancelButton)), "Exit", self)
+        self.e1.returnPressed.connect(self.check)
+        btn1.clicked.connect(self.check)
+        btn2.clicked.connect(self.next)
+        btn3.clicked.connect(QApplication.instance().quit)
+        hbox.addWidget(self.e1)
         hbox.addWidget(btn1)
         hbox.addWidget(btn2)
         hbox.addWidget(btn3)
-        hbox.addWidget(btn4)
         self.setLayout(hbox)
 
-    def select_input_folder(self):
-        return
-
-    def select_output_folder(self):
-        return
+    def check(self):
+        if (self.count > 0):
+            answer = self.e1.text().lower()
+            word = self.words.columns[self.count-1].lower()
+            if (answer == word):
+                msg = "That is correct!"
+            else:
+                msg = ("I'm sorry, that is incorrect. The correct spelling" +
+                       " is '" + word + "'")
+        else:
+            msg = "Click on Next to start"
+        self.parent.statusbar.showMessage(msg)
+        self.repaint()
 
     def next(self):
+        self.e1.setText("")
+        self.parent.statusbar.showMessage("Ready")
+        self.repaint()
         if (self.count < len(self.words.columns)):
             word = self.words.columns[self.count]
-            obj = gTTS(text=word, lang='en', slow=False)
-            filename = f'{word}.mp3' 
+            obj = gTTS(text=word, lang="en", slow=False)
+            filename = f"{word}.mp3"
             obj.save(filename)
             playsound(filename)
             os.remove(filename)
         self.count += 1
 
 def main():
-    myappid = u'mycompany.myproduct.subproduct.version' # arbitrary string
+    myappid = u"mycompany.myproduct.subproduct.version" # arbitrary string
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
     app = QApplication(sys.argv)
     w = MainWindow()
     sys.exit(app.exec_())
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
