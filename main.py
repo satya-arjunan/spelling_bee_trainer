@@ -82,13 +82,17 @@ class Widget(QWidget):
             QStyle.SP_ArrowForward)), "Next", self)
         btn3 = QPushButton(QIcon(QApplication.style().standardIcon(
             QStyle.SP_DialogCancelButton)), "Exit", self)
+        btn4 = QPushButton(QIcon(QApplication.style().standardIcon(
+            QStyle.SP_BrowserReload)), "Repeat", self)
         self.e1.returnPressed.connect(self.check)
         btn1.clicked.connect(self.check)
         btn2.clicked.connect(self.next)
         btn3.clicked.connect(self.quit)
+        btn4.clicked.connect(self.repeat)
         hbox.addWidget(self.e1)
         hbox.addWidget(btn1)
         hbox.addWidget(btn2)
+        hbox.addWidget(btn4)
         hbox.addWidget(btn3)
         self.setLayout(hbox)
 
@@ -123,6 +127,13 @@ class Widget(QWidget):
             indices = self.df[self.df.incorrect_count == max_incorrect].index
         self.index = random.choice(indices)
         
+    def repeat(self):
+        if (self.index >= 0):
+            word = self.df.words[self.index]
+            filename = f"{word}.mp3"
+            if os.path.isfile(filename):
+                playsound(filename)
+        
     def next(self):
         self.e1.setText("")
         self.parent.statusbar.showMessage("Ready")
@@ -134,11 +145,10 @@ class Widget(QWidget):
             filename = f"{word}.mp3"
             obj.save(filename)
             playsound(filename)
-            os.remove(filename)
 
 def main():
     myappid = u"mycompany.myproduct.subproduct.version" # arbitrary string
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    #ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
     app = QApplication(sys.argv)
     w = MainWindow()
     sys.exit(app.exec_())
