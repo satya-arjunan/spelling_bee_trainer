@@ -35,6 +35,8 @@ from playsound import playsound #pip install playsound==1.2.2 if has errors
 from gtts import gTTS
 import os
 
+db_filename = "database.csv"
+
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__()
@@ -57,7 +59,12 @@ class Widget(QWidget):
         self.initialise_ui()
         self.reset()
         self.count = 0
-        self.words = pd.read_csv("words8.csv")
+        if not os.path.isfile(db_filename):
+            words = pd.read_csv("words8.csv").columns.to_list()
+            self.df = pd.DataFrame(words, columns=["words"]) 
+            self.df["incorrect_count"] = -1
+        else:
+            self.df = pd.read_csv(db_filename)
 
     def reset(self):
         return
@@ -75,17 +82,21 @@ class Widget(QWidget):
         self.e1.returnPressed.connect(self.check)
         btn1.clicked.connect(self.check)
         btn2.clicked.connect(self.next)
-        btn3.clicked.connect(QApplication.instance().quit)
+        btn3.clicked.connect(self.quit)
         hbox.addWidget(self.e1)
         hbox.addWidget(btn1)
         hbox.addWidget(btn2)
         hbox.addWidget(btn3)
         self.setLayout(hbox)
 
+    def quit(self):
+        self.df.to_csv(db_filename, index=False)
+        QApplication.instance().quit()
+
     def check(self):
         if (self.count > 0):
             answer = self.e1.text().lower()
-            word = self.words.columns[self.count-1].lower()
+            word = self.df.words[self.count-1].lower()
             if (answer == word):
                 msg = "That is correct!"
             else:
@@ -100,8 +111,8 @@ class Widget(QWidget):
         self.e1.setText("")
         self.parent.statusbar.showMessage("Ready")
         self.repaint()
-        if (self.count < len(self.words.columns)):
-            word = self.words.columns[self.count]
+        if (self.count < self.df.shape[0]):
+            word = self.df.words[self.count]
             obj = gTTS(text=word, lang="en", slow=False)
             filename = f"{word}.mp3"
             obj.save(filename)
