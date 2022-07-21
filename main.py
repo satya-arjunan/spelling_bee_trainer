@@ -34,8 +34,10 @@ import pandas as pd
 from playsound import playsound #pip install playsound==1.2.2 if has errors
 from gtts import gTTS
 import os
+import random
 
 db_filename = "database.csv"
+words_filename = "words8.csv"
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -58,11 +60,12 @@ class Widget(QWidget):
         self.parent = parent
         self.initialise_ui()
         self.reset()
-        self.count = 0
+        self.index = -1
         if not os.path.isfile(db_filename):
-            words = pd.read_csv("words8.csv").columns.to_list()
+            words = pd.read_csv(words_filename).columns.to_list()
             self.df = pd.DataFrame(words, columns=["words"]) 
-            self.df["incorrect_count"] = -1
+            self.df["incorrect_count"] = 0
+            self.df["correct_count"] = 0
         else:
             self.df = pd.read_csv(db_filename)
 
@@ -94,31 +97,44 @@ class Widget(QWidget):
         QApplication.instance().quit()
 
     def check(self):
-        if (self.count > 0):
+        if (self.index >= 0):
             answer = self.e1.text().lower()
-            word = self.df.words[self.count-1].lower()
+            word = self.df.words[self.index].lower()
             if (answer == word):
                 msg = "That is correct!"
+                self.df.correct_count[self.index] += 1 
             else:
                 msg = ("I'm sorry, that is incorrect. The correct spelling" +
                        " is '" + word + "'")
+                self.df.incorrect_count[self.index] += 1
         else:
             msg = "Click on Next to start"
         self.parent.statusbar.showMessage(msg)
         self.repaint()
 
+    def update_index(self):
+        indices = self.df[self.df.correct_count == 0].index
+        # if all words have at least one correct count:
+        if (len(indices) == 0):
+            max_incorrect = self.df.incorrect_count.max()
+            if (max_incorrect == 0):
+                self.index = -1
+                return
+            indices = self.df[self.df.incorrect_count == max_incorrect].index
+        self.index = random.choice(indices)
+        
     def next(self):
         self.e1.setText("")
         self.parent.statusbar.showMessage("Ready")
         self.repaint()
-        if (self.count < self.df.shape[0]):
-            word = self.df.words[self.count]
+        self.update_index()
+        if (self.index >= 0):
+            word = self.df.words[self.index]
             obj = gTTS(text=word, lang="en", slow=False)
             filename = f"{word}.mp3"
             obj.save(filename)
             playsound(filename)
             os.remove(filename)
-        self.count += 1
 
 def main():
     myappid = u"mycompany.myproduct.subproduct.version" # arbitrary string
