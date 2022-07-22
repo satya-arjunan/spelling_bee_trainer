@@ -38,6 +38,7 @@ import random
 
 db_filename = "database.csv"
 words_filename = "words8.csv"
+recent_count = 5
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -61,6 +62,7 @@ class Widget(QWidget):
         self.initialise_ui()
         self.reset()
         self.index = -1
+        self.is_checked = True
         if not os.path.isfile(db_filename):
             words = pd.read_csv(words_filename).columns.to_list()
             self.df = pd.DataFrame(words, columns=["words"]) 
@@ -84,7 +86,7 @@ class Widget(QWidget):
             QStyle.SP_DialogCancelButton)), "Exit", self)
         btn4 = QPushButton(QIcon(QApplication.style().standardIcon(
             QStyle.SP_BrowserReload)), "Repeat", self)
-        self.e1.returnPressed.connect(self.check)
+        self.e1.returnPressed.connect(self.return_pressed)
         btn1.clicked.connect(self.check)
         btn2.clicked.connect(self.next)
         btn3.clicked.connect(self.quit)
@@ -100,23 +102,33 @@ class Widget(QWidget):
         self.df.to_csv(db_filename, index=False)
         QApplication.instance().quit()
 
+    def return_pressed(self):
+        if self.is_checked:
+            self.next()
+        else:
+            self.check()
+
     def check(self):
         if (self.index >= 0):
             answer = self.e1.text().lower()
             word = self.df.words[self.index].lower()
             if (answer == word):
                 msg = "That is correct!"
-                self.df.correct_count[self.index] += 1 
+                if not self.is_checked:
+                    self.df.correct_count[self.index] += 1 
             else:
                 msg = ("I'm sorry, that is incorrect. The correct spelling" +
                        " is '" + word + "'")
-                self.df.incorrect_count[self.index] += 1
+                if not self.is_checked:
+                    self.df.incorrect_count[self.index] += 1
         else:
             msg = "Click on Next to start"
+        self.is_checked = True
         self.parent.statusbar.showMessage(msg)
         self.repaint()
 
     def update_index(self):
+        self.is_checked = False
         indices = self.df[self.df.correct_count == 0].index
         # if all words have at least one correct count:
         if (len(indices) == 0):
@@ -125,7 +137,9 @@ class Widget(QWidget):
                 self.index = -1
                 return
             indices = self.df[self.df.incorrect_count == max_incorrect].index
-        self.index = random.choice(indices)
+        print("choices:", 
+            self.df.words[indices[:min(recent_count, len(indices))]])
+        self.index = random.choice(indices[:min(recent_count, len(indices))])
         
     def repeat(self):
         if (self.index >= 0):
@@ -135,6 +149,8 @@ class Widget(QWidget):
                 playsound(filename)
         
     def next(self):
+        if not self.is_checked:
+            self.check()
         self.e1.setText("")
         self.parent.statusbar.showMessage("Ready")
         self.repaint()
@@ -143,7 +159,8 @@ class Widget(QWidget):
             word = self.df.words[self.index]
             obj = gTTS(text=word, lang="en", slow=False)
             filename = f"{word}.mp3"
-            obj.save(filename)
+            if not os.path.isfile(filename):
+                obj.save(filename)
             playsound(filename)
 
 def main():
