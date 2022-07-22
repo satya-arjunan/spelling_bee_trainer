@@ -35,7 +35,9 @@ from playsound import playsound #pip install playsound==1.2.2 if has errors
 from gtts import gTTS
 import os
 import random
+from PyDictionary import PyDictionary
 
+dictionary = PyDictionary()
 db_filename = "database.csv"
 words_filename = "words8.csv"
 recent_count = 5
@@ -75,9 +77,23 @@ class Widget(QWidget):
         return
 
     def initialise_ui(self):
+        vbox = QVBoxLayout()
+        vbox2 = QVBoxLayout()
+        vbox3 = QVBoxLayout()
+        vbox4 = QVBoxLayout()
         hbox = QHBoxLayout()
+        hbox2 = QHBoxLayout()
         self.e1 = QLineEdit()
         self.e1.setFont(QFont("Arial", 20))
+        self.e_meaning = QPlainTextEdit()
+        self.e_meaning.setFont(QFont("Arial", 10))
+        self.e_synonym = QPlainTextEdit()
+        self.e_synonym.setFont(QFont("Arial", 10))
+        self.e_antonym = QPlainTextEdit()
+        self.e_antonym.setFont(QFont("Arial", 10))
+        self.lbl_meaning = QLabel('Meaning:')
+        label2 = QLabel('Synonym:')
+        label3 = QLabel('Antonym:')
         btn1 = QPushButton(QIcon(QApplication.style().standardIcon(
             QStyle.SP_DialogApplyButton)), "Check", self)
         btn2 = QPushButton(QIcon(QApplication.style().standardIcon(
@@ -96,7 +112,18 @@ class Widget(QWidget):
         hbox.addWidget(btn2)
         hbox.addWidget(btn4)
         hbox.addWidget(btn3)
-        self.setLayout(hbox)
+        vbox2.addWidget(self.lbl_meaning)
+        vbox2.addWidget(self.e_meaning)
+        vbox3.addWidget(label2)
+        vbox3.addWidget(self.e_synonym)
+        vbox4.addWidget(label3)
+        vbox4.addWidget(self.e_antonym)
+        hbox2.addLayout(vbox2)
+        hbox2.addLayout(vbox3)
+        hbox2.addLayout(vbox4)
+        vbox.addLayout(hbox)
+        vbox.addLayout(hbox2)
+        self.setLayout(vbox)
 
     def quit(self):
         self.df.to_csv(db_filename, index=False)
@@ -107,11 +134,18 @@ class Widget(QWidget):
             self.next()
         else:
             self.check()
+    
+    def update_dictionary(self, word):
+        self.lbl_meaning.setText(f"Meaning of {word}:")
+        self.e_meaning.setPlainText(str(dictionary.meaning(word)))
+        self.e_synonym.setPlainText(str(dictionary.synonym(word)))
+        self.e_antonym.setPlainText(str(dictionary.antonym(word)))
 
     def check(self):
         if (self.index >= 0):
             answer = self.e1.text().lower()
             word = self.df.words[self.index].lower()
+            self.update_dictionary(word)
             if (answer == word):
                 msg = "That is correct!"
                 if not self.is_checked:
