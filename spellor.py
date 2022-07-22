@@ -64,6 +64,7 @@ class Widget(QWidget):
         self.initialise_ui()
         self.reset()
         self.index = -1
+        self.points = 0
         self.is_checked = True
         if not os.path.isfile(db_filename):
             words = pd.read_csv(words_filename).columns.to_list()
@@ -89,12 +90,14 @@ class Widget(QWidget):
         self.e1 = QLineEdit()
         self.e1.setFont(QFont("Arial", 20))
         self.e_meaning = QPlainTextEdit()
-        self.e_meaning.setFont(QFont("Arial", 10))
+        self.e_meaning.setFont(QFont("Arial", 13))
         self.e_synonym = QPlainTextEdit()
-        self.e_synonym.setFont(QFont("Arial", 10))
+        self.e_synonym.setFont(QFont("Arial", 13))
         self.e_antonym = QPlainTextEdit()
-        self.e_antonym.setFont(QFont("Arial", 10))
+        self.e_antonym.setFont(QFont("Arial", 13))
         self.lbl_meaning = QLabel('Meaning:')
+        self.lbl_points = QLabel('Points: 0')
+        self.lbl_incorrect_count = QLabel('Incorrect Count: 0')
         label2 = QLabel('Synonym:')
         label3 = QLabel('Antonym:')
         btn1 = QPushButton(QIcon(QApplication.style().standardIcon(
@@ -123,6 +126,8 @@ class Widget(QWidget):
         hbox.addWidget(btn5)
         hbox.addWidget(btn6)
         hbox.addWidget(btn3)
+        vbox2.addWidget(self.lbl_points)
+        vbox2.addWidget(self.lbl_incorrect_count)
         vbox2.addWidget(self.lbl_meaning)
         vbox2.addWidget(self.e_meaning)
         vbox3.addWidget(label2)
@@ -180,18 +185,30 @@ class Widget(QWidget):
             if (answer == word):
                 msg = "That is correct!"
                 if not self.is_checked:
+                    self.points += 1
                     self.df.correct_count[self.index] += 1 
             elif (answer != ""):
                 msg = ("I'm sorry, that is incorrect. The correct spelling" +
                        " is '" + word + "'")
                 if not self.is_checked:
+                    self.points -= 1
                     self.df.incorrect_count[self.index] += 1
             else:
                 msg = "Ready"
+            self.update_points()
         else:
             msg = "Click on Next to start"
         self.is_checked = True
         self.update_statusbar(msg)
+
+    def update_points(self):
+        self.lbl_points.setText(f"Points: {self.points}")
+        incorrect_count = self.df.incorrect_count[self.index]
+        word = self.df.words[self.index]
+        self.lbl_incorrect_count.setText(
+                f"Incorrect Count for {word}: {incorrect_count}")
+        self.repaint()
+        self.parent.repaint()
 
     def update_index(self):
         self.is_checked = False
@@ -203,9 +220,12 @@ class Widget(QWidget):
                 self.index = -1
                 return
             indices = self.df[self.df.incorrect_count == max_incorrect].index
-        print("choices:", 
-            self.df.words[indices[:min(recent_count, len(indices))]])
-        self.index = random.choice(indices[:min(recent_count, len(indices))])
+        #print("choices:", 
+        #    self.df.words[indices[:min(recent_count, len(indices))]])
+        current_index = self.index
+        while (len(indices) >= 2 and self.index == current_index):
+            self.index = random.choice(
+                    indices[:min(recent_count, len(indices))])
         
     def repeat(self):
         if (self.index >= 0):
