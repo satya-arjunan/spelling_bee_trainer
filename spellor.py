@@ -116,11 +116,13 @@ class Widget(QWidget):
                 msg = "That is correct!"
                 if not self.is_checked:
                     self.df.correct_count[self.index] += 1 
-            else:
+            elif (answer != ""):
                 msg = ("I'm sorry, that is incorrect. The correct spelling" +
                        " is '" + word + "'")
                 if not self.is_checked:
                     self.df.incorrect_count[self.index] += 1
+            else:
+                msg = "Ready"
         else:
             msg = "Click on Next to start"
         self.is_checked = True
