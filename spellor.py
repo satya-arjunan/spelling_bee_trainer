@@ -149,6 +149,7 @@ class Widget(QWidget):
     def update_statusbar(self, msg):
         self.parent.statusbar.showMessage(msg)
         self.repaint()
+        self.parent.repaint()
 
     def offline(self):
         for index in self.df.index:
