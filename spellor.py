@@ -70,6 +70,9 @@ class Widget(QWidget):
             self.df = pd.DataFrame(words, columns=["words"]) 
             self.df["incorrect_count"] = 0
             self.df["correct_count"] = 0
+            self.df["meaning"] = ""
+            self.df["synonym"] = ""
+            self.df["antonym"] = ""
         else:
             self.df = pd.read_csv(db_filename)
 
@@ -102,15 +105,23 @@ class Widget(QWidget):
             QStyle.SP_DialogCancelButton)), "Exit", self)
         btn4 = QPushButton(QIcon(QApplication.style().standardIcon(
             QStyle.SP_BrowserReload)), "Repeat", self)
+        btn5 = QPushButton(QIcon(QApplication.style().standardIcon(
+            QStyle.SP_DesktopIcon)), "Offline", self)
+        btn6 = QPushButton(QIcon(QApplication.style().standardIcon(
+            QStyle.SP_DialogSaveButton)), "Save", self)
         self.e1.returnPressed.connect(self.return_pressed)
         btn1.clicked.connect(self.check)
         btn2.clicked.connect(self.next)
         btn3.clicked.connect(self.quit)
         btn4.clicked.connect(self.repeat)
+        btn5.clicked.connect(self.offline)
+        btn6.clicked.connect(self.save)
         hbox.addWidget(self.e1)
         hbox.addWidget(btn1)
         hbox.addWidget(btn2)
         hbox.addWidget(btn4)
+        hbox.addWidget(btn5)
+        hbox.addWidget(btn6)
         hbox.addWidget(btn3)
         vbox2.addWidget(self.lbl_meaning)
         vbox2.addWidget(self.e_meaning)
@@ -126,7 +137,7 @@ class Widget(QWidget):
         self.setLayout(vbox)
 
     def quit(self):
-        self.df.to_csv(db_filename, index=False)
+        self.save()
         QApplication.instance().quit()
 
     def return_pressed(self):
@@ -134,18 +145,37 @@ class Widget(QWidget):
             self.next()
         else:
             self.check()
+
+    def update_statusbar(self, msg):
+        self.parent.statusbar.showMessage(msg)
+        self.repaint()
+
+    def offline(self):
+        for index in self.df.index:
+            if self.df.meaning[index] == "":
+                word = self.df.words[index]
+                self.update_statusbar(f"downloading {word}...")
+                self.df.meaning[index] = str(dictionary.meaning(word))
+                self.df.synonym[index] = str(dictionary.synonym(word))
+                self.df.antonym[index] = str(dictionary.antonym(word))
+                self.update_statusbar("Done.")
+        return
     
-    def update_dictionary(self, word):
+    def save(self):
+        self.df.to_csv(db_filename, index=False)
+    
+    def update_dictionary(self, index):
+        word = self.df.words[index]
         self.lbl_meaning.setText(f"Meaning of {word}:")
-        self.e_meaning.setPlainText(str(dictionary.meaning(word)))
-        self.e_synonym.setPlainText(str(dictionary.synonym(word)))
-        self.e_antonym.setPlainText(str(dictionary.antonym(word)))
+        self.e_meaning.setPlainText(self.df.meaning[index])
+        self.e_synonym.setPlainText(self.df.synonym[index])
+        self.e_antonym.setPlainText(self.df.antonym[index])
 
     def check(self):
         if (self.index >= 0):
             answer = self.e1.text().lower()
             word = self.df.words[self.index].lower()
-            self.update_dictionary(word)
+            self.update_dictionary(self.index)
             if (answer == word):
                 msg = "That is correct!"
                 if not self.is_checked:
@@ -160,8 +190,7 @@ class Widget(QWidget):
         else:
             msg = "Click on Next to start"
         self.is_checked = True
-        self.parent.statusbar.showMessage(msg)
-        self.repaint()
+        self.update_statusbar(msg)
 
     def update_index(self):
         self.is_checked = False
