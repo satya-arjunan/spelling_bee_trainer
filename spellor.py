@@ -164,6 +164,7 @@ class Widget(QWidget):
                 self.df.meaning[index] = str(dictionary.meaning(word))
                 self.df.synonym[index] = str(dictionary.synonym(word))
                 self.df.antonym[index] = str(dictionary.antonym(word))
+                self.save()
                 self.update_statusbar("Done.")
         return
     

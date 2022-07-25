@@ -1,0 +1,124 @@
+words,incorrect_count,correct_count,meaning,synonym,antonym
+depth,0,0,"{'Noun': ['the extent downward or backward or inward', 'degree of psychological or intellectual profundity', '(usually plural', 'the intellectual ability to penetrate deeply into ideas', 'the attribute or quality of being deep, strong, or intense']}",None,None
+forgetting,0,0,"{'Verb': ['dismiss from the mind; stop remembering', 'be unable to remember', 'forget to do something', 'leave behind unintentionally']}",None,None
+example,0,0,"{'Noun': ['an item of information that is typical of a class or group', 'a representative form or pattern', 'something to be imitated', 'punishment intended as a warning to others', 'an occurrence of something', 'a task performed or problem solved in order to develop skill or understanding']}",None,None
+educate,0,0,"{'Verb': ['give an education to', 'create by training and teaching', 'teach or refine to be discriminative in taste or judgment']}",None,None
+entire,0,0,"{'Noun': ['uncastrated adult male horse'], 'Adjective': ['constituting the full quantity or extent; complete', 'constituting the undiminished entirety; lacking nothing essential especially not damaged', '(of leaves or petals', '(used of domestic animals']}",None,None
+horizon,0,0,"{'Noun': ['the line at which the sky and Earth appear to meet', 'the range of interest or activity that can be anticipated', 'a specific layer or stratum of soil or subsoil in a vertical cross section of land', 'the great circle on the celestial sphere whose plane passes through the sensible horizon and the center of the Earth']}",None,None
+freight,0,0,"{'Noun': ['goods carried by a large vehicle', 'transporting goods commercially at rates cheaper than express rates', 'the charge for transporting something by common carrier'], 'Verb': ['transport commercially as cargo', 'load with goods for transportation']}",None,None
+earliest,0,0,"{'Adjective': [""(comparative and superlative of `early'"", 'at or near the beginning of a period of time or course of events or before the usual or expected time', 'being or occurring at an early stage of development', 'belonging to the distant past', 'very young', 'of an early stage in the development of a language or literature', 'expected in the near future'], 'Adverb': ['with the least delay', 'during an early stage', 'before the usual time or the time expected', 'in good time']}",None,None
+threat,0,0,"{'Noun': ['something that is a source of danger', 'a warning that something unpleasant is imminent', 'declaration of an intention or a determination to inflict harm on another', 'a person who inspires fear or dread']}",None,None
+relieve,0,0,"{'Verb': ['provide physical relief, as from pain', 'free someone temporarily from his or her obligations', 'grant relief or an exemption from a rule or requirement to', 'lessen the intensity of or calm', 'save from ruin, destruction, or harm', 'relieve oneself of troubling information', 'provide relief for', 'free from a burden, evil, or distress', 'take by stealing', 'grant exemption or release to', 'alleviate or remove (pressure or stress']}",None,None
+muscle,0,0,"{'Noun': ['one of the contractile organs of the body', 'animal tissue consisting predominantly of contractile cells', 'a bully employed as a thug or bodyguard', 'authority or power or force (especially when used in a coercive way', 'possessing muscular strength'], 'Verb': [""make one's way by force""]}",None,None
+meant,0,0,"{'Verb': ['mean or intend to express or convey', 'have as a logical consequence', 'denote or connote', 'have in mind as a purpose', 'have a specified degree of importance', 'intend to refer to', 'destine or designate for a certain purpose']}",None,None
+exchange,0,0,"{'Noun': ['chemical process in which one atom or ion or group changes places with another', 'a mutual expression of views (especially an unpleasant one', 'the act of changing one thing for another thing', 'the act of giving something in return for something received', 'a workplace that serves as a telecommunications facility where lines from telephones can be connected together to permit communication', 'a workplace for buying and selling; open only to members', '(sports', 'reciprocal transfer of equivalent sums of money (especially the currencies of different countries', '(chess', 'or losing', '(chess', 'usually on consecutive moves'], 'Verb': ['give to, and receive from, one another', 'exchange or replace with another, usually of the same kind or category', 'change over, change around, as to a new order or sequence', 'hand over one and receive another, approximately equivalent', 'put in the place of another; switch seemingly equivalent items', 'exchange a penalty for a less severe one']}",None,None
+securing,0,0,"{'Verb': ['get by special effort', 'cause to be firmly attached', 'assure payment of', 'make certain of', 'fill or close tightly with or as if with a plug', 'furnish with battens']}",None,None
+obedient,0,0,{'Adjective': ['dutifully complying with the commands or instructions of those in authority']},None,None
+unsanitary,0,0,{'Adjective': ['not sanitary or healthful']},None,None
+leisure,0,0,"{'Noun': ['time available for ease and relaxation', 'freedom to choose a pastime or enjoyable activity']}",None,None
+crypt,0,0,{'Noun': ['a cellar or vault or underground burial chamber (especially beneath a church']},None,None
+supervisor,0,0,"{'Noun': ['one who supervises or has charge and direction of', 'a program that controls the execution of other programs']}",None,None
+persuade,0,0,"{'Verb': ['win approval or support for', ""cause somebody to adopt a certain position, belief, or course of action; twist somebody's arm""]}",None,None
+glamorous,0,0,"{'Adjective': ['having an air of allure, romance and excitement']}",None,None
+optimistic,0,0,"{'Adjective': ['expecting the best in this best of all possible worlds', 'expecting the best']}",None,None
+envious,0,0,"{'Adjective': [""showing extreme cupidity; painfully desirous of another's advantages""]}",None,None
+controversy,0,0,{'Noun': ['a contentious speech act; a dispute where there is strong disagreement']},None,None
+deficiency,0,0,"{'Noun': ['the state of needing something that is absent or unavailable', 'lack of an adequate quantity or number']}",None,None
+schedule,0,0,"{'Noun': ['a temporally organized plan for matters to be attended to', 'an ordered list of times at which things are planned to occur'], 'Verb': ['plan for an activity or event', 'make a schedule; plan the time and place for events']}",None,None
+characteristic,0,0,"{'Noun': ['a prominent attribute or aspect of something', 'a distinguishing quality', 'the integer part (positive or negative', 'any measurable property of a device measured under closely specified conditions'], 'Adjective': ['typical or distinctive']}",None,None
+environment,0,0,"{'Noun': ['the totality of surrounding conditions', 'the area in which something exists or lives']}",None,None
+amusement,0,0,"{'Noun': ['a feeling of delight at being entertained', 'an activity that is diverting and that holds the attention']}",None,None
+criticize,0,0,"{'Verb': ['find fault with; express criticism of; point out real or perceived flaws', 'act as a critic']}",None,None
+venom,0,0,"{'Noun': ['toxin secreted by animals; secreted by certain snakes and poisonous insects (e.g., spiders and scorpions', 'feeling a need to see others suffer']}",None,None
+awkward,0,0,"{'Adjective': ['causing inconvenience', 'lacking grace or skill in manner or movement or performance', 'difficult to handle or manage especially because of shape', 'not elegant or graceful in expression', 'hard to deal with; especially causing pain or embarrassment', 'or embarrassing or difficult', 'socially uncomfortable; unsure and constrained in manner']}",None,None
+arrangement,0,0,"{'Noun': ['the thing arranged or agreed to', 'an orderly grouping (of things or persons', 'an organized structure for arranging or classifying', 'the spatial property of the way in which something is placed', 'a piece of music that has been adapted for performance by a particular set of voices or instruments', 'the act of arranging and adapting a piece of music']}",None,None
+considerable,0,0,{'Adjective': ['large or relatively large in number or amount or extent or degree']},None,None
+barometer,0,0,{'Noun': ['an instrument that measures atmospheric pressure']},None,None
+mercenary,0,0,"{'Noun': ['a person hired to fight for another country than their own'], 'Adjective': ['marked by materialism', 'serving for wages in a foreign army', 'profit oriented']}",None,None
+plaintiff,0,0,{'Noun': ['a person who brings an action in a court of law']},None,None
+omitted,0,0,"{'Verb': ['prevent from being included or considered or accepted', 'leave undone or leave out']}",None,None
+deterrent,0,0,"{'Noun': ['something immaterial that interferes with or delays action or progress'], 'Adjective': ['tending to deter']}",None,None
+cameos,0,0,{'Noun': ['engraving or carving in low relief on a stone (as in a brooch or ring']},None,None
+malicious,0,0,{'Adjective': ['having the nature of or resulting from malice']},None,None
+obscure,0,0,"{'Verb': ['make less visible or unclear', 'make unclear, indistinct, or blurred', 'make obscure or unclear', 'reduce a vowel to a neutral one, such as a schwa', 'make undecipherable or imperceptible by obscuring or concealing'], 'Adjective': ['not clearly expressed or understood', 'marked by difficulty of style or expression', 'difficult to find', 'not famous or acclaimed', 'not drawing attention', 'remote and separate physically or socially']}",None,None
+propeller,0,0,{'Noun': ['a mechanical device that rotates to push against air or water']},None,None
+perceived,0,0,"{'Verb': ['to become aware of through the senses', 'become conscious of'], 'Adjective': ['detected by instinct or inference rather than by recognized perceptual cues', 'detected by means of the senses']}",None,None
+taboo,0,0,"{'Noun': ['a prejudice (especially in Polynesia and other South Pacific islands', 'an inhibition or ban resulting from social custom or emotional aversion'], 'Verb': ['declare as sacred and forbidden'], 'Adjective': ['excluded from use or mention', 'forbidden to profane use especially in South Pacific islands']}",None,None
+technology,0,0,"{'Noun': ['the application of the knowledge and usage of tools (such as machines or utensils', 'the discipline dealing with the art or science of applying scientific knowledge to practical problems', 'machinery and equipment developed from engineering or other applied sciences']}",None,None
+surmise,0,0,"{'Noun': ['a message expressing an opinion based on incomplete evidence'], 'Verb': ['infer from incomplete evidence', 'imagine to be the case or true or probable']}",None,None
+internally,0,0,{'Adverb': ['on or from the inside']},None,None
+specific,0,0,"{'Noun': ['a fact about some part (as opposed to general', 'a medicine that has a mitigating effect on a specific disease'], 'Adjective': [""(sometimes followed by `to'"", 'stated explicitly or in detail', 'relating to or distinguishing or constituting a taxonomic species', 'being or affecting a disease produced by a particular microorganism or condition; used also of stains or dyes used in making microscope slides']}",None,None
+protein,0,0,{'Noun': ['any of a large group of nitrogenous organic compounds that are essential constituents of living cells; consist of polymers of amino acids; essential in the diet of animals for growth and for repair of tissues; can be obtained from meat and eggs and milk and legumes']},None,None
+criminal,0,0,"{'Noun': ['someone who has committed a crime or has been legally convicted of a crime'], 'Adjective': ['bringing or deserving severe rebuke or censure', 'guilty of crime or serious offense', 'involving or being or having the nature of a crime']}",None,None
+precipitate,0,0,"{'Noun': ['a precipitated solid substance in suspension or after settling or filtering'], 'Verb': ['bring about abruptly', 'separate as a fine suspension of solid particles', 'fall from clouds', 'fall vertically, sharply, or headlong', 'hurl or throw violently'], 'Adjective': ['done with very great haste and without due deliberation']}",None,None
+forgery,0,0,"{'Noun': ['a copy that is represented as the original', 'criminal falsification by making or altering an instrument with intent to defraud']}",None,None
+unbelievable,0,0,"{'Adjective': ['beyond belief or understanding', 'having a probability too low to inspire belief']}",None,None
+unduly,0,0,{'Adverb': ['to an undue degree']},None,None
+annoyance,0,0,"{'Noun': ['the psychological state of being irritated or annoyed', 'anger produced by some annoying irritation', 'an unpleasant person who is annoying or exasperating', 'something or someone that causes trouble; a source of unhappiness', 'the act of troubling or annoying someone']}",None,None
+vessel,0,0,"{'Noun': ['a tube in which a body fluid circulates', 'a craft designed for water transportation', 'an object used as a container (especially for liquids']}",None,None
+insufficient,0,0,{'Adjective': ['of a quantity not able to fulfill a need or requirement']},None,None
+capably,0,0,{'Adverb': ['with competence; in a competent capable manner']},None,None
+belligerent,0,0,"{'Noun': ['someone who fights (or is fighting'], 'Adjective': ['characteristic of an enemy or one eager to fight', 'engaged in war', 'or warring']}",None,None
+amnesty,0,0,"{'Noun': ['a period during which offenders are exempt from punishment', 'a warrant granting release from punishment for an offense', 'the formal act of liberating someone'], 'Verb': ['grant a pardon to (a group of people']}",None,None
+snobbery,0,0,{'Noun': ['the trait of condescending to those of lower social status']},None,None
+applicant,0,0,{'Noun': ['a person who requests or seeks something such as assistance or employment or admission']},None,None
+anxious,0,0,"{'Adjective': ['eagerly desirous', 'causing or fraught with or showing anxiety']}",None,None
+fashionable,0,0,"{'Adjective': ['being or in accordance with current social fashions', 'having elegance or taste or refinement in manners or dress', 'popular and considered appealing or fashionable at the time']}",None,None
+machinery,0,0,"{'Noun': ['machines or machine systems collectively', 'a system of means and activities whereby a social institution functions']}",None,None
+laboratory,0,0,"{'Noun': ['a workplace for the conduct of scientific research', 'a region resembling a laboratory inasmuch as it offers opportunities for observation and practice and experimentation']}",None,None
+shuddering,0,0,"{'Verb': ['shake, as from cold', 'tremble convulsively, as from fear or excitement'], 'Adjective': ['shaking convulsively or violently']}",None,None
+sacrifice,0,0,"{'Noun': ['the act of losing or surrendering something as a penalty for a mistake or fault or failure to perform etc.', 'personnel that are sacrificed (e.g., surrendered or lost in order to gain an objective', 'a loss entailed by giving up or selling something at less than its value', 'the act of killing (an animal or person', '(baseball'], 'Verb': ['endure the loss of', 'kill or destroy', 'sell at a loss', 'make a sacrifice of; in religious rituals']}",None,None
+fibrous,0,0,"{'Adjective': ['having or resembling fibers especially fibers used in making cordage such as those of jute', '(of meat']}",None,None
+escalator,0,0,"{'Noun': ['a clause in a contract that provides for an increase or a decrease in wages or prices or benefits etc. depending on certain conditions (as a change in the cost of living index', 'a stairway whose steps move continuously on a circulating belt']}",None,None
+privilege,0,0,"{'Noun': ['a special advantage or immunity or benefit not enjoyed by all', 'a right reserved exclusively by a particular person or group (especially a hereditary or official right'], 'Verb': ['bestow a privilege upon']}",None,None
+burglary,0,0,{'Noun': ['entering a building unlawfully with intent to commit a felony or to steal valuable property']},None,None
+melodious,0,0,"{'Adjective': ['having a musical sound; especially a pleasing tune', 'containing or constituting or characterized by pleasing melody']}",None,None
+embargo,0,0,"{'Noun': ['a government order imposing a trade barrier'], 'Verb': ['ban the publication of (documents', 'prevent commerce']}",None,None
+outrageous,0,0,"{'Adjective': ['grossly offensive to decency or morality; causing horror', 'greatly exceeding bounds of reason or moderation']}",None,None
+rectangular,0,0,"{'Adjective': ['having four right angles', 'having a set of mutually perpendicular axes; meeting at right angles']}",None,None
+honorary,0,0,{'Adjective': ['given as an honor without the normal duties']},None,None
+minimize,0,0,"{'Verb': ['make small or insignificant', 'represent as less significant or important', 'cause to seem less serious; play down']}",None,None
+contrary,0,0,"{'Noun': ['a relation of direct opposition', 'exact opposition', 'a logical relation such that two propositions are contraries if both cannot be true but both can be false'], 'Adjective': ['very opposed in nature or character or purpose', 'of words or propositions so related that both cannot be true but both may be false', 'resistant to guidance or discipline', 'in an opposing direction']}",None,None
+passageway,0,0,"{'Noun': ['a passage between rooms or between buildings', 'a path or channel or duct through or along which something may pass']}",None,None
+vertigo,0,0,{'Noun': ['a reeling sensation; a feeling that you are about to fall']},None,None
+malady,0,0,"{'Noun': ['any unwholesome or desperate condition', 'impairment of normal physiological function affecting part or all of an organism']}",None,None
+lucrative,0,0,{'Adjective': ['producing a sizeable profit']},None,None
+extraordinary,0,0,"{'Adjective': ['beyond what is ordinary or usual; highly unusual or exceptional or remarkable', 'far more than usual or expected', '(of an official']}",None,None
+abstain,0,0,"{'Verb': ['refrain from voting', 'choose not to consume']}",None,None
+procrastinate,0,0,"{'Verb': ['postpone doing what one should be doing', 'postpone or delay needlessly']}",None,None
+serviceable,0,0,"{'Adjective': ['ready for service or able to give long service', 'capable of being put to good use', 'intended or able to serve a purpose without elaboration']}",None,None
+parliament,0,0,"{'Noun': ['a legislative assembly in certain countries', 'a card game in which you play your sevens and other cards in sequence in the same suit as the sevens; you win if you are the first to use all your cards']}",None,None
+necessity,0,0,"{'Noun': ['the condition of being essential or indispensable', 'anything indispensable']}",None,None
+recurrent,0,0,{'Adjective': ['recurring again and again']},None,None
+ominous,0,0,"{'Adjective': ['threatening or foreshadowing evil or tragic developments', 'presaging ill fortune']}",None,None
+permeate,0,0,"{'Verb': ['spread or diffuse through', 'pass through', 'penetrate mutually or be interlocked']}",None,None
+religious,0,0,"{'Noun': ['a member of a religious order who is bound by vows of poverty and chastity and obedience'], 'Adjective': ['concerned with sacred matters or religion or the church', 'having or showing belief in and reverence for a deity', 'of or relating to clergy bound by monastic vows', 'extremely scrupulous and conscientious']}",None,None
+occurred,0,0,"{'Verb': ['come to pass', ""come to one's mind; suggest itself"", 'to be found to exist']}",None,None
+prestigious,0,0,"{'Adjective': ['having an illustrious reputation; respected', 'exerting influence by reason of high status or prestige']}",None,None
+scandalized,0,0,{'Verb': ['strike with disgust or revulsion']},None,None
+voracious,0,0,"{'Adjective': ['excessively greedy and grasping', 'devouring or craving food in great quantities']}",None,None
+universal,0,0,"{'Noun': ['(linguistics', 'or other linguistic feature', '(logic', 'a behavioral convention or pattern characteristic of all members of a particular culture or of all human beings', 'coupling that connects two rotating shafts allowing freedom of movement in all directions'], 'Adjective': ['of worldwide scope or applicability', 'applicable to or common to all members of a group or set', 'adapted to various purposes, sizes, forms, operations']}",None,None
+transient,0,0,"{'Noun': ['one who stays for only a short time', '(physics'], 'Adjective': ['of a mental act; causing effects outside the mind', 'lasting a very short time']}",None,None
+meticulous,0,0,"{'Adjective': ['marked by precise accordance with details', 'marked by extreme care in treatment of details']}",None,None
+personification,0,0,"{'Noun': ['a person who represents an abstract quality', 'representing an abstract quality or idea as a person or creature', 'the act of attributing human characteristics to abstract ideas etc.']}",None,None
+inevitable,0,0,"{'Noun': ['an unavoidable event'], 'Adjective': ['incapable of being avoided or prevented', 'invariably occurring or appearing']}",None,None
+vigilant,0,0,{'Adjective': ['carefully observant or attentive; on the lookout for possible danger']},None,None
+interrogate,0,0,"{'Verb': ['transmit (a signal', 'pose a series of questions to']}",None,None
+malignant,0,0,{'Adjective': ['dangerous to health; characterized by progressive and uncontrolled growth (especially of a tumor']},None,None
+benevolent,0,0,"{'Adjective': ['intending or showing kindness', 'showing or motivated by sympathy and understanding and generosity', 'generous in providing aid to others', 'generous in assistance to the poor']}",None,None
+consequence,0,0,"{'Noun': ['a phenomenon that follows and is caused by some previous phenomenon', 'the outcome of an event especially as relative to an individual', 'having important effects or influence']}",None,None
+unenforceable,0,0,{'Adjective': ['not enforceable; not capable of being brought about by compulsion']},None,None
+nostalgia,0,0,{'Noun': ['longing for something past']},None,None
+omnipotent,0,0,{'Adjective': ['having unlimited power']},None,None
+vivacious,0,0,{'Adjective': ['vigorous and animated']},None,None
+precocious,0,0,"{'Adjective': ['characterized by or characteristic of exceptionally early development or maturity (especially in mental aptitude', 'appearing or developing early']}",None,None
+indulgence,0,0,"{'Noun': ['an inability to resist the gratification of whims and desires', 'a disposition to yield to the wishes of someone', 'the act of indulging or gratifying a desire', 'foolish or senseless behavior', 'the remission by the pope of the temporal punishment in purgatory that is still due for sins even after absolution']}",None,None
+vulnerable,0,0,"{'Adjective': ['susceptible to attack', 'susceptible to criticism or persuasion or temptation', 'capable of being wounded or hurt']}",None,None
+vacillate,0,0,"{'Verb': ['be undecided about something; waver between conflicting positions or courses of action', 'move or sway in a rising and falling or wavelike pattern']}",None,None
+inconvenience,0,0,"{'Noun': ['an inconvenient discomfort', 'a difficulty that causes anxiety', 'the quality of not being useful or convenient'], 'Verb': ['to cause inconvenience or discomfort to']}",None,None
+potpourri,0,0,"{'Noun': ['a collection containing a variety of sorts of things', 'a musical composition consisting of a series of songs or other musical pieces from various sources', 'a jar of mixed flower petals and spices used as perfume']}",None,None
+ubiquitous,0,0,{'Adjective': ['being present everywhere at once']},None,None
+phenomenon,0,0,"{'Noun': ['any state or process known through the senses rather than by intuition or reasoning', 'a remarkable development']}",None,None
+caricature,0,0,"{'Noun': ['a representation of a person that is exaggerated for comic effect'], 'Verb': ['represent in or produce a caricature of']}",None,None
+surveillance,0,0,{'Noun': ['close observation of a person or group (usually by the police']},None,None
+metamorphosis,0,0,"{'Noun': ['the marked and rapid transformation of a larva into an adult that occurs in some animals', 'a striking change in appearance or character or circumstances', 'a complete change of physical form or substance especially as by magic or witchcraft']}",None,None
